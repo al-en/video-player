@@ -1,0 +1,98 @@
+body{
+    /* background-color: #26B4BC; */
+    font-family: sans-serif;
+    background: rgb(36,0,35);
+    background: linear-gradient(90deg, rgba(36,0,35,1) 0%, rgba(121,9,66,1) 39%, rgba(0,212,255,1) 100%);
+}
+
+button{
+    inline-size: 32px;
+    block-size: 32px;
+    border: none;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+button:active{
+    transform: scale(.9);
+}
+
+#play{
+    background-image: url('../images/play.svg');
+}
+
+#pause{
+    background-image: url('../images/pause.svg');
+}
+#backward{
+    background-image: url('../images/-10.svg');
+}
+#forward{
+    background-image: url('../images/+10.svg');
+}
+
+.wrapper{
+    max-inline-size: 900px;
+    margin: auto;
+}
+
+.player{
+    position: relative;
+}
+
+.player video{
+    inline-size: 100%;
+    aspect-ratio: 16/9; /*Para que no se modifique cuando se da play/pausa*/
+    vertical-align: middle;
+    object-fit: cover; /*La imagen del video se expande a todo el ratio del contenedor*/
+}
+
+.player-title{
+    color: #FFF;
+    position: absolute;
+    inset-inline-start: 20px;
+    inset-block-start: 0;
+}
+
+.player-actions{
+    position:absolute;
+    inset:0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* z-index: 2; */
+    gap: 20px;
+}
+
+.player-actions button{
+    cursor: pointer;
+}
+
+.player-progress{
+    position:absolute;
+    inset-block-end: 0;
+    inset-inline: 0; /* para que ocupe todo el ancho del parent*/
+    display: flex;
+    padding: 10px;
+}
+
+.player-progress input{
+    flex:1; /* para que tome todo el ancho del parent (siempre que este sea flex)*/
+}
+
+.player-overlay{
+    position: absolute;
+    inset:0;
+    opacity: 0;
+    transition: .3s opacity;
+} 
+
+.player:hover .player-overlay{
+    opacity: 1;
+}
+
+.wrapper h1{
+    color: #FFF;
+    text-align: center;
+}
